@@ -19,8 +19,8 @@ revealEls.forEach(el => observer.observe(el));
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.style.boxShadow = window.scrollY > 20
-    ? '0 8px 32px rgba(0,0,0,0.4)'
-    : 'none';
+  ? '0 8px 32px rgba(0,0,0,0.4)'
+  : 'none';
 });
 
 // --- MOBILE NAV TOGGLE ---
@@ -41,14 +41,14 @@ const typeArea = document.getElementById('typeArea');
 
 const lines = [
   { text: '$ whoami', cls: 'cmd', delay: 400 },
-  { text: 'matyas_abraham', cls: 'out', delay: 900 },
-  { text: '$ cat skills.txt', cls: 'cmd', delay: 1600 },
-  { text: 'arch_linux  bash  hyprland  git', cls: 'out', delay: 2200 },
-  { text: 'web_security  nodejs  mongodb', cls: 'out', delay: 2700 },
-  { text: '$ ls projects/', cls: 'cmd', delay: 3400 },
-  { text: 'masu-hyprland/  masu-terminal/  cyber-academy/', cls: 'out', delay: 4000 },
-  { text: '$ echo $GOAL', cls: 'cmd', delay: 4800 },
-  { text: '"Build, teach, secure."', cls: 'out', delay: 5400 },
+{ text: 'matyas_abraham', cls: 'out', delay: 900 },
+{ text: '$ cat skills.txt', cls: 'cmd', delay: 1600 },
+{ text: 'arch_linux  bash  hyprland  git', cls: 'out', delay: 2200 },
+{ text: 'web_security  nodejs  mongodb', cls: 'out', delay: 2700 },
+{ text: '$ ls projects/', cls: 'cmd', delay: 3400 },
+{ text: 'masu-hyprland/  masu-terminal/  cyber-academy/', cls: 'out', delay: 4000 },
+{ text: '$ echo $GOAL', cls: 'cmd', delay: 4800 },
+{ text: '"Build, teach, secure."', cls: 'out', delay: 5400 },
 ];
 
 function addLine(text, cls) {
