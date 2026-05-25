@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses — Matyas Abraham</title>
   <meta name="description" content="Free cybersecurity and tech courses curated by MASU Cyber Academy. Malware analysis, privilege escalation, web hacking, networking, and more.">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     /* ── Courses page extras ── */
     .courses-hero {
@@ -26,8 +28,9 @@
     }
 
     .courses-hero h1 span {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -66,9 +69,9 @@
 
     .filter-tabs button:hover { color: var(--text); border-color: var(--border2); }
     .filter-tabs button.active {
-      color: var(--accent);
+      color: var(--bg);
       border-color: var(--accent);
-      background: var(--accent-dim);
+      background: var(--accent);
     }
 
     .search-wrap {
@@ -249,6 +252,8 @@
 </head>
 
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -467,7 +472,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
-      <p>© 2025 MASU Cyber Academy · Free knowledge for everyone</p>
+      <p>© 2026 MASU Cyber Academy · Free knowledge for everyone</p>
       <div class="footer-links">
         <a href="https://github.com/Maty156" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
@@ -475,17 +480,52 @@
   </footer>
 
   <script>
-    // Navbar scroll shadow
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.style.boxShadow = window.scrollY > 20 ? '0 8px 32px rgba(0,0,0,0.4)' : 'none';
+    // --- CUSTOM CURSOR ---
+    const cursorDot = document.querySelector(".cursor-dot");
+    const cursorOutline = document.querySelector(".cursor-outline");
+
+    window.addEventListener("mousemove", (e) => {
+      const posX = e.clientX;
+      const posY = e.clientY;
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
+      cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+      }, { duration: 500, fill: "forwards" });
     });
 
-    // Mobile nav toggle
+    const interactables = document.querySelectorAll("a, button, input");
+    interactables.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)";
+        cursorOutline.style.backgroundColor = "rgba(0, 242, 255, 0.1)";
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
+        cursorOutline.style.backgroundColor = "transparent";
+      });
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile nav
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle) {
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        navToggle.querySelector('i').classList.toggle('fa-bars');
+        navToggle.querySelector('i').classList.toggle('fa-xmark');
+      });
     }
 
     // Filter tabs
@@ -499,7 +539,10 @@
     });
 
     // Search
-    document.getElementById('courseSearch').addEventListener('input', applyFilters);
+    const searchInput = document.getElementById('courseSearch');
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilters);
+    }
 
     function applyFilters() {
       const query = document.getElementById('courseSearch').value.toLowerCase().trim();
