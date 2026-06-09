@@ -157,6 +157,12 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
 }
 
+/* Smooth mobile nav transitions */
+.nav-links {
+  transition: transform 260ms var(--transition), opacity 200ms ease;
+  transform-origin: top right;
+}
+
 /* Mobile navigation and touch-device tweaks */
 @media (hover: none) and (pointer: coarse) {
   .cursor-dot,
@@ -282,6 +288,25 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--text-faint);
 }
 
+/* Ripple effect base styles */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 600ms ease-out;
+  background: rgba(0,242,255,0.12);
+}
+
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Ensure clickable elements are positioned for ripple */
+.btn-primary, .btn-ghost, .nav-toggle, .copy-btn {
+  position: relative; overflow: hidden;
+}
+
 /* =============================================
  *   HERO
  *   ============================================= */
@@ -344,6 +369,19 @@ a { color: inherit; text-decoration: none; }
   -webkit-background-clip: text;
   background-clip: text; /* Fixed compatibility lint */
   -webkit-text-fill-color: transparent;
+}
+
+/* Animated neon gradient for hero name */
+.hero-name span {
+  background-size: 200% 200%;
+  animation: hero-gradient 6s ease-in-out infinite;
+  text-shadow: 0 6px 20px rgba(0,242,255,0.06), 0 2px 6px rgba(112,0,255,0.04);
+}
+
+@keyframes hero-gradient {
+  0% { background-position: 0% 50%; filter: drop-shadow(0 0 6px rgba(0,242,255,0.06)); }
+  50% { background-position: 100% 50%; filter: drop-shadow(0 0 12px rgba(112,0,255,0.08)); }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-tagline {
@@ -442,6 +480,20 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-dim);
   min-height: 260px;
 }
+
+/* Copy button for terminal */
+.cw-bar .copy-btn {
+  margin-left: auto;
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--surface-br);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.cw-bar .copy-btn:hover { background: var(--surface-hover); color: var(--text); }
 
 .cw-body .cmd { color: var(--accent); }
 .cw-body .out { color: #a582ff; }

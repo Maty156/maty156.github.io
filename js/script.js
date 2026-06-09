@@ -87,6 +87,9 @@ document.addEventListener('click', (e) => {
     if (!navLinks || !navToggle) return;
     if (!navLinks.classList.contains('open')) return;
     const target = e.target;
+    // allow elements marked with this selector to ignore closing (e.g. .no-close)
+    const navIgnoreSelector = '.no-close';
+    if (target.closest && target.closest(navIgnoreSelector)) return;
     if (!navLinks.contains(target) && !navToggle.contains(target)) {
       navLinks.classList.remove('open');
       const icon = navToggle.querySelector('i');
@@ -111,14 +114,14 @@ document.addEventListener('keydown', (e) => {
 const typeArea = document.getElementById('typeArea');
 if (typeArea) {
   const lines = [
-    { text: '$ whoami', cls: 'cmd', delay: 500 },
-    { text: 'matyas_abraham', cls: 'out', delay: 1200 },
-    { text: '$ cat skills.json', cls: 'cmd', delay: 2000 },
-    { text: '{ "focus": ["Sec", "Dev", "Ops"], "OS": "Arch Linux" }', cls: 'out', delay: 2800 },
-    { text: '$ ls projects/featured', cls: 'cmd', delay: 3800 },
-    { text: 'masu-hypr-rice  masu-cyber-academy', cls: 'out', delay: 4500 },
-    { text: '$ echo $STATUS', cls: 'cmd', delay: 5500 },
-    { text: '"Ready for new challenges."', cls: 'out', delay: 6200 },
+    { text: '$ whoami', cls: 'cmd', delay: 900 },
+    { text: 'matyas_abraham', cls: 'out', delay: 1800 },
+    { text: '$ cat skills.json', cls: 'cmd', delay: 3000 },
+    { text: '{ "focus": ["Sec", "Dev", "Ops"], "OS": "Arch Linux" }', cls: 'out', delay: 4200 },
+    { text: '$ ls projects/featured', cls: 'cmd', delay: 5400 },
+    { text: 'masu-hypr-rice  masu-cyber-academy', cls: 'out', delay: 6800 },
+    { text: '$ echo $STATUS', cls: 'cmd', delay: 8200 },
+    { text: '"Ready for new challenges."', cls: 'out', delay: 9600 },
   ];
 
   function addLine(text, cls) {
@@ -138,8 +141,40 @@ if (typeArea) {
     const cursor = document.createElement('span');
     cursor.className = 'cursor-blink';
     typeArea.appendChild(cursor);
-  }, 7000);
+  }, 10400);
 }
+
+// --- COPY TERMINAL TEXT ---
+const copyBtn = document.getElementById('copyTerminal');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async (e) => {
+    try {
+      const text = typeArea ? typeArea.innerText : '';
+      await navigator.clipboard.writeText(text);
+      const orig = copyBtn.innerText;
+      copyBtn.innerText = 'Copied';
+      setTimeout(() => { copyBtn.innerText = orig; }, 1400);
+    } catch (err) {
+      copyBtn.innerText = 'Failed';
+      setTimeout(() => { copyBtn.innerText = 'Copy'; }, 1400);
+    }
+  });
+}
+
+// --- RIPPLE EFFECT ON BUTTONS ---
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest && e.target.closest('.btn-primary, .btn-ghost, .nav-toggle, .copy-btn');
+  if (!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const size = Math.max(rect.width, rect.height) * 0.8;
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove());
+});
 
 // --- CONTACT FORM (Formspree) ---
 const contactForm = document.getElementById('contact-form');
