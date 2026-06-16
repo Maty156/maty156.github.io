@@ -117,7 +117,7 @@
   padding: 36px 0 32px;
   flex-wrap: wrap;
   position: sticky;
-  top: var(--nav-h);
+  top: calc(var(--nav-h) + 24px);
   z-index: 10;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
