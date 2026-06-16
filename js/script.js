@@ -26,11 +26,11 @@ if (cursorDot && cursorOutline) {
   document.querySelectorAll('a, button, .bcard, .acard, .skill-pills span').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorOutline.style.transform = 'translate(-50%,-50%) scale(1.8)';
-      cursorOutline.style.borderColor = 'rgba(0,212,255,0.8)';
+      cursorOutline.style.borderColor = 'rgba(255,255,255,0.8)';
     });
     el.addEventListener('mouseleave', () => {
       cursorOutline.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursorOutline.style.borderColor = 'rgba(0,212,255,0.5)';
+      cursorOutline.style.borderColor = 'rgba(255,255,255,0.5)';
     });
   });
 }
