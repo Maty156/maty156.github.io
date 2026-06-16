@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matyas Abraham — Developer & Security Researcher</title>
-  <meta name="description" content="Portfolio of Matyas Abraham — ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
-  
+  <meta name="description"
+    content="Portfolio of Matyas Abraham — ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://maty156.github.io/">
   <meta property="og:title" content="Matyas Abraham — Developer & Security Researcher">
-  <meta property="og:description" content="ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
+  <meta property="og:description"
+    content="ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
   <meta property="og:image" content="https://maty156.github.io/meta-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://maty156.github.io/">
   <meta property="twitter:title" content="Matyas Abraham — Developer & Security Researcher">
-  <meta property="twitter:description" content="ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
+  <meta property="twitter:description"
+    content="ICT student, developer, and cybersecurity researcher from Addis Ababa, Ethiopia.">
   <meta property="twitter:image" content="https://maty156.github.io/meta-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- CURSOR -->
@@ -39,6 +46,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#certs">Certs</a>
         <a href="#journey">Journey</a>
         <a href="#projects">Projects</a>
         <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener">Courses</a>
@@ -51,6 +59,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg">
+      <canvas id="nexusCanvas"></canvas>
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
@@ -67,13 +76,12 @@
           <span class="hero-name-grad">Abraham</span>
         </h1>
         <p class="hero-role">ICT Student &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Security Researcher</p>
-        <p class="hero-bio">
-          Building open-source Linux tools, automating environments, and teaching cybersecurity. 
-          Founder of <strong>MASU Cyber Academy</strong> — free education for Ethiopian developers.
-        </p>
+          Building open-source Linux tools, automating environments, and exploring cybersecurity.
+          Founder of <strong>MASU Cyber Academy</strong> — a community effort for Ethiopian developers.
         <div class="hero-actions">
           <a href="#projects" class="btn-grad">View Projects <i class="fas fa-arrow-right"></i></a>
-          <a href="https://github.com/Maty156" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/Maty156" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>
+            GitHub</a>
         </div>
         <div class="hero-stats">
           <div class="hstat">
@@ -82,30 +90,87 @@
           </div>
           <div class="hstat-sep"></div>
           <div class="hstat">
-            <span class="hstat-num">3+</span>
-            <span class="hstat-label">Years on Linux</span>
+            <span class="hstat-num">1</span>
+            <span class="hstat-label">Year on Linux</span>
           </div>
           <div class="hstat-sep"></div>
           <div class="hstat">
-            <span class="hstat-num">50+</span>
-            <span class="hstat-label">Students Trained</span>
+            <span class="hstat-num">2</span>
+            <span class="hstat-label">Certs Earned</span>
           </div>
         </div>
       </div>
 
       <div class="hero-right">
-        <div class="hero-terminal">
-          <div class="term-bar">
-            <div class="term-dots">
-              <span class="td-red"></span>
-              <span class="td-yellow"></span>
-              <span class="td-green"></span>
+        <div class="sys-dashboard reveal">
+          <!-- Card 1: Environment -->
+          <div class="sys-card sys-env">
+            <div class="sys-card-head">
+              <i class="fas fa-microchip"></i>
+              <span>System Core</span>
             </div>
-            <span class="term-title">matyas@masu — bash</span>
-            <button class="term-copy" id="copyTerminal">copy</button>
+            <div class="sys-env-list">
+              <div class="env-item">
+                <span class="env-label">OS</span>
+                <span class="env-val">Arch Linux</span>
+              </div>
+              <div class="env-item">
+                <span class="env-label">KERNEL</span>
+                <span class="env-val">Rolling 6.x</span>
+              </div>
+              <div class="env-item">
+                <span class="env-label">SHELL</span>
+                <span class="env-val">Zsh / P10K</span>
+              </div>
+            </div>
           </div>
-          <div class="term-body" id="typeArea"></div>
+          
+          <!-- Card 2: Tech Matrix -->
+          <div class="sys-card sys-tech">
+            <div class="sys-tech-grid">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fab fa-golang" title="Go"></i>
+              <i class="fab fa-js" title="Javascript"></i>
+              <i class="fab fa-rust" title="Rust"></i>
+              <i class="fab fa-linux" title="Linux"></i>
+              <i class="fab fa-docker" title="Docker"></i>
+            </div>
+          </div>
+
+          <!-- Card 3: Research Status -->
+          <div class="sys-card sys-vult">
+            <div class="sys-vult-inner">
+              <div class="vult-radar">
+                <div class="radar-ping"></div>
+              </div>
+              <div class="vult-text">
+                <span class="vult-label">Researching</span>
+                <span class="vult-val">Malware Analysis</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="sec-widget reveal">
+          <a href="https://tryhackme.com/p/matyasabreham7" target="_blank" class="sw-card">
+            <div class="sw-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="sw-info">
+              <span class="sw-label">TryHackMe</span>
+              <span class="sw-val">@matyasabreham7</span>
+            </div>
+            <i class="fas fa-arrow-up-right-from-square sw-ext"></i>
+          </a>
+          <a href="https://profile.hackthebox.com/profile/019c77ea-1d74-70b5-8529-9a077466c3f4" target="_blank"
+            class="sw-card">
+            <div class="sw-icon"><i class="fas fa-cube"></i></div>
+            <div class="sw-info">
+              <span class="sw-label">HackTheBox</span>
+              <span class="sw-val">Maty156</span>
+            </div>
+            <i class="fas fa-arrow-up-right-from-square sw-ext"></i>
+          </a>
+        </div>
+
         <div class="hero-float-badge hfb-1">
           <i class="fab fa-linux"></i> Arch Linux Daily
         </div>
@@ -158,13 +223,13 @@
         <div class="about-text">
           <h2>Building things,<br>learning everything.</h2>
           <p>
-            I'm an ICT student at <strong>Nifas Silk Polytechnic College</strong> in Addis Ababa 
-            with a focus on cybersecurity, Linux systems, and open-source development. 
+            I'm an ICT student at <strong>Nifas Silk Polytechnic College</strong> in Addis Ababa
+            with a focus on cybersecurity, Linux systems, and open-source development.
             Self-taught across ethical hacking, web development, and automation scripting.
           </p>
           <p>
-            Under the <strong>MASU</strong> brand, I've published tools used by the Linux community — 
-            including a Hyprland desktop installer and a terminal setup script with thousands of 
+            Under the <strong>MASU</strong> brand, I've published tools used by the Linux community —
+            including a Hyprland desktop installer and a terminal setup script with thousands of
             views on Reddit's r/zsh and r/unixporn.
           </p>
           <div class="currently">
@@ -253,6 +318,49 @@
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
+  <section id="certs" class="section reveal">
+    <div class="container">
+      <div class="sec-eyebrow"><span class="sec-num">03</span> Certifications</div>
+      <h2>Verified Expertise</h2>
+      <div class="cert-grid">
+        <div class="cert-card stagger">
+          <div class="cert-img-wrap">
+            <img src="img/cert-thm.png" alt="TryHackMe Pre Security Certificate">
+            <div class="cert-overlay">
+              <a href="#contact" class="btn-cert">Request ID <i class="fas fa-lock"></i></a>
+            </div>
+          </div>
+          <div class="cert-content">
+            <div class="cert-top">
+              <span class="cert-date">Feb 2026</span>
+              <span class="cert-tag">Cybersecurity</span>
+            </div>
+            <h4>Pre Security (New)</h4>
+            <p>TryHackMe Learning Path focusing on technical security prerequisites, networking, and standard protocols.
+            </p>
+          </div>
+        </div>
+        <div class="cert-card stagger">
+          <div class="cert-img-wrap">
+            <img src="img/cert-udacity.png" alt="Udacity AI Fundamentals Certificate">
+            <div class="cert-overlay">
+              <a href="#contact" class="btn-cert">Request ID <i class="fas fa-lock"></i></a>
+            </div>
+          </div>
+          <div class="cert-content">
+            <div class="cert-top">
+              <span class="cert-date">Mar 2025</span>
+              <span class="cert-tag">Artificial Intelligence</span>
+            </div>
+            <h4>AI Fundamentals</h4>
+            <p>Udacity Nanodegree Program covering machine learning basics, neural networks, and AI ethics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- JOURNEY -->
   <section id="journey" class="section reveal">
     <div class="container">
@@ -265,7 +373,8 @@
           <div class="tl-year">2025</div>
           <div class="tl-card">
             <h4>Getting Started</h4>
-            <p>Began the technology journey while studying ICT. Most learning self-directed — reading docs, tutorials, and experimenting with small projects.</p>
+            <p>Began the technology journey while studying ICT. Most learning self-directed — reading docs, tutorials,
+              and experimenting with small projects.</p>
           </div>
         </div>
         <div class="tl-item stagger">
@@ -273,7 +382,8 @@
           <div class="tl-year">2025</div>
           <div class="tl-card">
             <h4>Hands-on Linux</h4>
-            <p>Adopted Arch Linux as my daily driver. Learned by installing, configuring, breaking, and fixing — practical troubleshooting at every step.</p>
+            <p>Adopted Arch Linux as my daily driver. Learned by installing, configuring, breaking, and fixing —
+              practical troubleshooting at every step.</p>
           </div>
         </div>
         <div class="tl-item stagger">
@@ -281,7 +391,8 @@
           <div class="tl-year">2025–26</div>
           <div class="tl-card">
             <h4>Networking &amp; Systems</h4>
-            <p>Studied TCP/IP, routing, servers, Active Directory. Built lab environments to practise configuring services and troubleshooting connectivity.</p>
+            <p>Studied TCP/IP, routing, servers, Active Directory. Built lab environments to practise configuring
+              services and troubleshooting connectivity.</p>
           </div>
         </div>
         <div class="tl-item stagger">
@@ -289,7 +400,8 @@
           <div class="tl-year">2026</div>
           <div class="tl-card">
             <h4>Security Practice</h4>
-            <p>Practising cybersecurity on TryHackMe and Hack The Box. Focused on understanding vulnerabilities hands-on in legal lab environments.</p>
+            <p>Practising cybersecurity on TryHackMe and Hack The Box. Focused on understanding vulnerabilities hands-on
+              in legal lab environments.</p>
           </div>
         </div>
         <div class="tl-item tl-item--active stagger">
@@ -297,7 +409,8 @@
           <div class="tl-year tl-year--active">Now</div>
           <div class="tl-card tl-card--active">
             <h4>Active Builder &amp; Learner</h4>
-            <p>Building tools, troubleshooting real systems, growing across Linux, networking, security, and web development.</p>
+            <p>Building tools, troubleshooting real systems, growing across Linux, networking, security, and web
+              development.</p>
             <span class="tl-chip">In Progress</span>
           </div>
         </div>
@@ -314,16 +427,17 @@
       <div class="bento">
 
         <!-- FEATURED -->
-        <a href="https://github.com/Maty156/masu-hyprland-installer"
-           target="_blank" rel="noopener"
-           class="bcard bcard--feat stagger">
+        <a href="https://github.com/Maty156/masu-hyprland-installer" target="_blank" rel="noopener"
+          class="bcard bcard--feat stagger">
           <div class="bcard-glow"></div>
           <div class="bcard-top">
             <div class="bcard-icon"><i class="fas fa-desktop"></i></div>
             <span class="bcard-chip">v2.3 &nbsp;·&nbsp; Open Source</span>
           </div>
           <h3>MASU Hyprland Installer</h3>
-          <p>A complete Hyprland desktop rice installer with a pywal dynamic color pipeline, Waybar theming, swaync notifications, matuwall wallpaper picker, hyprlock, and SDDM. One-command setup with multi-distro support.</p>
+          <p>A complete Hyprland desktop rice installer with a pywal dynamic color pipeline, Waybar theming, swaync
+            notifications, matuwall wallpaper picker, hyprlock, and SDDM. One-command setup with multi-distro support.
+          </p>
           <div class="bcard-tags">
             <span>Bash</span><span>Arch Linux</span><span>Hyprland</span><span>pywal</span><span>SDDM</span>
           </div>
@@ -336,15 +450,15 @@
         <!-- ROW OF 3 -->
         <div class="bento-row">
 
-          <a href="https://github.com/Maty156/masu-terminal-installer"
-             target="_blank" rel="noopener"
-             class="bcard stagger">
+          <a href="https://github.com/Maty156/masu-terminal-installer" target="_blank" rel="noopener"
+            class="bcard stagger">
             <div class="bcard-top">
               <div class="bcard-icon bcard-icon--purple"><i class="fas fa-terminal"></i></div>
               <span class="bcard-chip">v7 &nbsp;·&nbsp; Popular</span>
             </div>
             <h3>MASU Terminal Installer</h3>
-            <p>Automated ZSH environment setup with Powerlevel10k, plugins, Nerd Fonts, and safe .zshrc handling. Multi-distro OS detection. Thousands of views on r/zsh and r/unixporn.</p>
+            <p>Automated ZSH environment setup with Powerlevel10k, plugins, Nerd Fonts, and safe .zshrc handling.
+              Multi-distro OS detection. Thousands of views on r/zsh and r/unixporn.</p>
             <div class="bcard-tags"><span>Bash</span><span>ZSH</span><span>Linux</span></div>
             <div class="bcard-foot">
               <span class="bcard-repo"><i class="fab fa-github"></i> Maty156/masu-terminal-installer</span>
@@ -352,31 +466,31 @@
             </div>
           </a>
 
-          <a href="https://masu-cyber-academy.onrender.com/"
-             target="_blank" rel="noopener"
-             class="bcard bcard--live stagger">
+          <a href="https://masu-cyber-academy.onrender.com/" target="_blank" rel="noopener"
+            class="bcard bcard--live stagger">
             <div class="bcard-top">
               <div class="bcard-icon bcard-icon--green"><i class="fas fa-graduation-cap"></i></div>
               <span class="bcard-live-badge"><span class="bcard-live-dot"></span>Live</span>
             </div>
             <h3>MASU Cyber Academy</h3>
-            <p>Free cybersecurity learning platform for Ethiopian students — 10 lessons, quizzes, and certificates. Built with Node.js, Express, and MongoDB. Deployed on Render.</p>
-            <div class="bcard-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>HTML/CSS</span></div>
+            <p>Free cybersecurity learning platform for Ethiopian students — 10 lessons, quizzes, and certificates.
+              Built with Node.js, Express, and MongoDB. Deployed on Render.</p>
+            <div class="bcard-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>HTML/CSS</span>
+            </div>
             <div class="bcard-foot">
               <span class="bcard-repo"><i class="fas fa-globe"></i> masu-cyber-academy.onrender.com</span>
               <span class="bcard-cta bcard-cta--green">Open <i class="fas fa-arrow-right"></i></span>
             </div>
           </a>
 
-          <a href="courses.html"
-             target="_blank" rel="noopener"
-             class="bcard bcard--muted stagger">
+          <a href="courses.html" target="_blank" rel="noopener" class="bcard bcard--muted stagger">
             <div class="bcard-top">
               <div class="bcard-icon bcard-icon--dim"><i class="fas fa-archive"></i></div>
               <span class="bcard-chip">Backup</span>
             </div>
             <h3>Courses — Archive</h3>
-            <p>Local backup archive of cybersecurity course videos and materials. Use as an offline reference; the live platform hosts the full interactive experience.</p>
+            <p>Local backup archive of cybersecurity course videos and materials. Use as an offline reference; the live
+              platform hosts the full interactive experience.</p>
             <div class="bcard-tags"><span>Videos</span><span>Archive</span><span>Reference</span></div>
             <div class="bcard-foot">
               <span class="bcard-repo"><i class="fas fa-folder"></i> courses.html</span>
@@ -402,7 +516,8 @@
       <div class="contact-wrap">
         <div class="contact-left">
           <h2>Let's connect.</h2>
-          <p>Open to collaborations, internship opportunities, and project discussions. Based in Addis Ababa — but the internet has no borders.</p>
+          <p>Open to collaborations, internship opportunities, and project discussions. Based in Addis Ababa — but the
+            internet has no borders.</p>
           <div class="contact-info">
             <div class="ci-row"><i class="fas fa-location-dot"></i><span>Addis Ababa, Ethiopia</span></div>
             <div class="ci-row"><i class="fas fa-user-graduate"></i><span>Nifas Silk Polytechnic College</span></div>
@@ -453,12 +568,13 @@
   <!-- EASTER EGG -->
   <div id="easter-egg">
     <div class="egg-box">
-      <pre class="egg-art"> ███╗   ███╗ █████╗ ███████╗██╗   ██╗
- ████╗ ████║██╔══██╗██╔════╝██║   ██║
- ██╔████╔██║███████║███████╗██║   ██║
- ██║╚██╔╝██║██╔══██║╚════██║██║   ██║
- ██║ ╚═╝ ██║██║  ██║███████║╚██████╔╝
- ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝</pre>
+      <pre class="egg-art">
+███╗   ███╗ █████╗ ███████╗██╗   ██╗
+████╗ ████║██╔══██╗██╔════╝██║   ██║
+██╔████╔██║███████║███████╗██║   ██║
+██║╚██╔╝██║██╔══██║╚════██║██║   ██║
+██║ ╚═╝ ██║██║  ██║███████║╚██████╔╝
+╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝</pre>
       <h3>You found the secret 👾</h3>
       <p>Konami code on a portfolio? Classic hacker move.<br><code>↑ ↑ ↓ ↓ ← → ← → B A</code></p>
       <button onclick="document.getElementById('easter-egg').classList.remove('active')">[ close ]</button>
@@ -468,4 +584,5 @@
   <script src="js/script.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="2507e87b-8f45-49d3-807f-f985c57cd6ad"></script>
 </body>
+
 </html>
