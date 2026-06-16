@@ -1751,11 +1751,11 @@ footer {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-  filter: blur(12px) grayscale(1);
+  filter: blur(5px) grayscale(1);
 }
 .cert-card:hover .cert-img-wrap img {
   transform: scale(1.05);
-  filter: blur(14px) grayscale(1);
+  filter: blur(6px) grayscale(1);
 }
 .cert-overlay {
   position: absolute;
